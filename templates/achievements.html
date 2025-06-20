@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Pencapaian - SuperEdu{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <main class="page-content">
+        <div class="achievements-header">
+    <h3>{{ user.nama_lengkap }} (@{{ user.username }})</h3>
+
+    {# 1. Hitung dan simpan lebar progress bar ke dalam variabel #}
+    {% set progress_width = 0 %}
+    {% if all_achievements and all_achievements|length > 0 %}
+        {% set progress_width = ((unlocked_names|length / all_achievements|length) * 100)|int %}
+    {% endif %}
+
+    {# 2. Gunakan variabel yang sudah bersih di dalam style #}
+    <div class="progress-bar">
+        <div class="progress-bar-fill"></div>
+    </div>
+    
+    <p>{{ unlocked_names|length }} dari {{ all_achievements|length }} Achievement Terbuka</p>
+</div>
+
+        <div class="achievements-grid">
+            {% for name, icon in all_achievements.items() %}
+            {% if name in unlocked_names %}
+            <div class="achievement-item unlocked">
+                <div class="achievement-icon">{{ icon }}</div>
+                <span class="achievement-name">{{ name }}</span>
+            </div>
+            {% else %}
+            <div class="achievement-item locked">
+                <div class="achievement-icon">🔒</div>
+                <span class="achievement-name">{{ name }}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </main>
+</div>
+{% endblock %}

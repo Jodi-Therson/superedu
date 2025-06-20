@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Riwayat Belajar - SuperEdu{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <header class="content-header">
+        <button class="sidebar-toggle" id="sidebar-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <h1>Riwayat Belajar</h1>
+    </header>
+
+    <main class="page-content">
+        {% if history_data %}
+            <div class="history-list">
+                {% for item in history_data %}
+                <div class="history-item">
+                    <span class="history-subject">{{ item.subject }}</span>
+                    <p class="history-question">"{{ item.question }}"</p>
+                    <span class="history-date">{{ item.date }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="history-placeholder">
+                <div class="placeholder-icon">📂</div>
+                <h3>Riwayat Belajar Masih Kosong</h3>
+                <p>Mulai percakapan di halaman Chat untuk melihat riwayat belajarmu di sini.</p>
+            </div>
+        {% endif %}
+    </main>
+</div>
+{% endblock %}

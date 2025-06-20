@@ -1,0 +1,7 @@
+# Environment variables
+.env
+
+# Other python files
+venv/
+__pycache__/
+*.pyc

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Profil Pengguna - SuperEdu{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <header class="content-header">
+        <h1>Profil Pengguna</h1>
+    </header>
+
+    <main class="page-content">
+        <div class="profile-card">
+            <div class="profile-info">
+                <div class="info-item">
+                    <label>Nama Lengkap</label>
+                    <p>{{ user.nama_lengkap }}</p>
+                </div>
+                <div class="info-item">
+                    <label>Username</label>
+                    <p>{{ user.username }}</p>
+                </div>
+                <div class="info-item">
+                    <label>NIS (Nomor Induk Siswa)</label>
+                    <p>{{ user.nis }}</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="profile-card mt-4">
+    <h3>Ubah Password</h3>
+    <form action="{{ url_for('change_password') }}" method="POST" class="change-password-form">
+        <div class="info-item">
+            <label for="old_password">Password Lama</label>
+            <input type="password" name="old_password" class="form-control" required>
+        </div>
+        <div class="info-item">
+            <label for="new_password">Password Baru</label>
+            <input type="password" name="new_password" class="form-control" required>
+        </div>
+        <div class="info-item">
+            <label for="confirm_password">Konfirmasi Password Baru</label>
+            <input type="password" name="confirm_password" class="form-control" required>
+        </div>
+        <button type="submit" class="edit-button">Ubah Password</button>
+    </form>
+</div>
+</main>
+</div>
+{% endblock %}

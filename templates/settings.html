@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Pengaturan - SuperEdu{% endblock %}
+
+{% block content %}
+<div class="settings-container">
+    <header class="settings-header">
+        <button class="sidebar-toggle" id="sidebar-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <h1>Pengaturan</h1>
+    </header>
+
+    <main class="settings-content">
+        <form id="settings-form">
+            <div class="setting-group">
+                <label class="setting-label">Preferensi Tema</label>
+                <div class="radio-options">
+                    <div class="radio-item">
+                        <input type="radio" id="theme-light" name="theme" value="light" checked>
+                        <label for="theme-light">Cerah (Light)</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="theme-dark" name="theme" value="dark">
+                        <label for="theme-dark">Gelap (Dark)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label class="setting-label">Karakter Asisten</label>
+                <div class="radio-options">
+                    <div class="radio-item">
+                        <input type="radio" id="char-owl" name="character" value="owl">
+                        <label for="char-owl">Burung Hantu</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="char-slime" name="character" value="slime" checked>
+                        <label for="char-slime">Slime Pixel</label>
+                    </div>
+                     <div class="radio-item">
+                        <input type="radio" id="char-none" name="character" value="none">
+                        <label for="char-none">Tidak Ada</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <button type="submit" class="save-button">Simpan Pengaturan</button>
+            </div>
+        </form>
+    </main>
+</div>
+{% endblock %}
